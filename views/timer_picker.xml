@@ -1,0 +1,9 @@
+<Alloy>
+    <Window id="win" layout="vertical" exitOnClose="true">
+        <Picker id="picker" top="50" selectionIndicator="true" useSpinner="true">
+            <PickerColumn id="min_column"/>
+            <PickerColumn id="sec_column"/>
+        </Picker>
+        <Button id="close_picker" title="Set" />
+    </Window>
+</Alloy>

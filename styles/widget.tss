@@ -1,0 +1,104 @@
+"#win": {
+  top: 0,
+  bottom: 0,
+  left: 0,
+  right: 0,
+  backgroundColor: '#55000000',
+},
+
+"#close":{
+  top: '5dp',
+  right:'5dp',
+  image: '/com.appcelerator.jpcolomer.modalcountdown/close.png'
+},
+
+".header": {
+  width: Ti.UI.FILL,
+  height: 30,
+  backgroundRepeat: true,
+  visible: true,
+  backgroundGradient: {
+    type: 'linear',
+    startPoint: {x: '0%', y: '0%'},
+    endPoint: {x: '0%', y: '100%'} ,
+    colors: ['#3c3c3c','#111111']
+  },
+  backgroundColor: '#aaa',
+},
+
+".modal-container":{
+  left: '10dp',
+  right: '10dp',
+  top: 100,
+  height: Ti.UI.SIZE,
+  layout: 'vertical',
+  borderRadius: '10dp',
+  borderColor: 'black',
+  borderWidth: '1dp',
+  backgroundColor: 'transparent'
+},
+
+"#body": {
+  backgroundColor: 'white',
+  top: 0,
+  width: Ti.UI.FILL,
+  height: Ti.UI.SIZE,
+  layout: 'vertical',
+  visible: true
+},
+
+"Label": {
+  width: Ti.UI.SIZE,
+  height: Ti.UI.SIZE,
+  color: "#000"
+},
+
+"#clock_wrapper": {
+  width: Ti.UI.FILL,
+  height: 100,
+  backgroundColor: '#111111',
+  layout: "center",
+},
+
+".button-container": {
+  width: Ti.UI.FILL,
+  height: 50,
+  backgroundColor: "#111111",
+},
+
+".clock_label": {
+  color: "white",
+  font: {
+    fontSize: '60dp'
+  }
+},
+
+"#set":{
+  top: '25%',
+  height: '50%',
+  left: '50dp',
+  width: '80dp',
+},
+
+"#start":{
+  top: '25%',
+  height: '50%',
+  right:'50dp',
+  width:'80dp'
+}
+
+"#stop": {
+  visible: false,
+  top: '25%',
+  height: '50%',
+  left: '50dp',
+  width: '80dp'
+},
+
+"#pause": {
+  visible: false,
+  top: '25%',
+  height: '50%',
+  right:'50dp',
+  width:'80dp'
+}

@@ -1,0 +1,11 @@
+"#win": {
+	backgroundColor: "transparent",
+  layout: 'vertical',
+  height:Ti.UI.SIZE,
+  bottom: 0,
+}
+
+"#close_picker": {
+  width: 80,
+  height: 25
+}
