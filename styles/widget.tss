@@ -7,8 +7,8 @@
 },
 
 "#close":{
-  top: '5dp',
-  right:'5dp',
+  top: 9,
+  right: 9,
   image: '/com.appcelerator.jpcolomer.modalcountdown/close.png'
 },
 
@@ -21,7 +21,7 @@
     type: 'linear',
     startPoint: {x: '0%', y: '0%'},
     endPoint: {x: '0%', y: '100%'} ,
-    colors: ['#3c3c3c','#111111']
+    colors: ['#585858','#3a3a3a']
   },
   backgroundColor: '#aaa',
 },
