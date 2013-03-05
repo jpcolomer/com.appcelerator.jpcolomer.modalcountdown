@@ -26,8 +26,20 @@ for x in [0...60] by 5
 $.picker.addEventListener 'change', (e) ->
   [min, sec] = e.selectedValue
 
-$.close_picker.addEventListener 'click', ->
+$.set.addEventListener 'click', ->
   $.win.close()
+
+$.set.addEventListener 'touchstart', ->
+  @oldGradient = @getBackgroundGradient()
+  @setBackgroundGradient
+    type: 'linear',
+    startPoint: {x: '0%', y: '0%'},
+    endPoint: {x: '0%', y: '100%'} ,
+    colors: ['#097B8C', '#174166']
+
+
+$.set.addEventListener 'touchend', ->
+  @.setBackgroundGradient @oldGradient
 
 
 exports.getMin = ->

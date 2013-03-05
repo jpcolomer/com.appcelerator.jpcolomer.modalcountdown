@@ -1,4 +1,8 @@
-class Timer
+Widget = 
+  Models: {}
+
+
+class Widget.Models.Timer
   constructor: ->
     @isSetted = false
 
@@ -32,16 +36,17 @@ class Timer
     ,1000)
 
   stop: ->
-    clearInterval(@intervalId)
+    clearInterval(@intervalId) if @intervalId?   
 
   pause: ->
-    clearInterval(@intervalId)
+    clearInterval(@intervalId) if @intervalId?
 
   reset: ->
     @set(@init_min, @init_sec)
 
 
-timer = new Timer
+timer = new Widget.Models.Timer()
+
 
 clockStyleNumber = (number) ->
   number = parseInt number
@@ -53,6 +58,7 @@ getMinSecsFromClock = ->
   params = 
     min: min
     sec: sec
+
 setMinSecsClock = (min, sec) ->
   $.clock.setText("#{clockStyleNumber(min)}:#{clockStyleNumber(sec)}")
 
@@ -62,12 +68,18 @@ set = ->
   timer_picker_view = timer_picker.getView()
   timer_picker.picker.addEventListener 'change', ->
     setMinSecsClock timer_picker.getMin(), timer_picker.getSec()
-    # $.min_label.setText clockStyleNumber(timer_picker.getMin())
-    # $.sec_label.setText clockStyleNumber(timer_picker.getSec())
+
     {min, sec} = getMinSecsFromClock()
 
     timer.set min, sec
+  timer_picker.set.addEventListener 'click', ->
+    $.start.show()
+    $.set.show()
   timer_picker_view.open()
+  $.start.hide()
+  $.set.hide()
+  $.win.addEventListener 'close', ->
+    timer_picker_view.close()
 
 start = ->
   unless timer.isSetted
@@ -81,8 +93,7 @@ start = ->
 
   timer.start(->
     setMinSecsClock timer.min, timer.sec
-    # $.min_label.setText clockStyleNumber(timer.min)
-    # $.sec_label.setText clockStyleNumber(timer.sec)
+
   , ->
     Ti.Media.vibrate [0, 300, 100, 300]
     reset()
@@ -112,6 +123,70 @@ $.pause.addEventListener 'click', ->
   @hide()
   $.start.show()
 
-$.close.addEventListener 'click', ->
-  timer.stop()
-  $.win.close()
+
+$.start.addEventListener 'touchstart', ->
+  @oldGradient = @getBackgroundGradient()
+  @setBackgroundGradient
+    type: 'linear',
+    startPoint: {x: '0%', y: '0%'},
+    endPoint: {x: '0%', y: '100%'} ,
+    colors: ['#0B5E0E', '#063007']
+
+
+$.start.addEventListener 'touchend', ->
+  @.setBackgroundGradient @oldGradient
+
+$.stop.addEventListener 'touchstart', ->
+  @oldGradient = @getBackgroundGradient()
+  @setBackgroundGradient
+    type: 'linear',
+    startPoint: {x: '0%', y: '0%'},
+    endPoint: {x: '0%', y: '100%'} ,
+    colors: ['#941B1B', '#801313']
+
+
+$.stop.addEventListener 'touchend', ->
+  @.setBackgroundGradient @oldGradient
+
+$.pause.addEventListener 'touchstart', ->
+  @oldGradient = @getBackgroundGradient()
+  @setBackgroundGradient
+    type: 'linear',
+    startPoint: {x: '0%', y: '0%'},
+    endPoint: {x: '0%', y: '100%'} ,
+    colors: ['#ABAB23', '#727A00']
+
+
+$.pause.addEventListener 'touchend', ->
+  @.setBackgroundGradient @oldGradient
+
+$.set.addEventListener 'touchstart', ->
+  @oldGradient = @getBackgroundGradient()
+  @setBackgroundGradient
+    type: 'linear',
+    startPoint: {x: '0%', y: '0%'},
+    endPoint: {x: '0%', y: '100%'} ,
+    colors: ['#097B8C', '#174166']
+
+
+$.set.addEventListener 'touchend', ->
+  @.setBackgroundGradient @oldGradient
+
+
+if OS_ANDROID
+
+  $.win.addEventListener "open", -> 
+    unless $.win.activity
+      Ti.API.error "Can't access action bar on a lightweight window."
+    else
+      actionBar = $.win.activity.actionBar
+      if actionBar
+        actionBar.setTitle 'Timer'
+        actionBar.setDisplayHomeAsUp true
+        actionBar.setOnHomeIconItemSelected(->
+          $.win.close()
+        )
+
+# $.close.addEventListener 'click', ->
+#   timer.stop()
+#   $.win.close()

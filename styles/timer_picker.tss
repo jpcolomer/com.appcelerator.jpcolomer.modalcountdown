@@ -2,10 +2,39 @@
 	backgroundColor: "transparent",
   layout: 'vertical',
   height:Ti.UI.SIZE,
-  bottom: 0,
+  top: '150dp',
 }
 
-"#close_picker": {
-  width: 80,
-  height: 25
+"#picker": {
+  top: '30dp',
+  selectionIndicator: true,
+  useSpinner: true
 }
+
+"#set":{
+  top: '20dp',
+  height: '40dp',
+  width: '40%',
+  backgroundGradient: {
+    type: 'linear',
+    startPoint: {x: '0%', y: '0%'},
+    endPoint: {x: '0%', y: '100%'} ,
+    colors: [{color: '#FFFFFF' ,offset: 0.0},{color: '#0CAEC7', offset: 0.15},{color: '#1B4E7A', offset: 0.8}]
+  },
+  font:{fontWeight:'bold',fontFamily:'Helvetica Neue'},
+  style: 0,
+  borderRadius: '5dp',
+  borderWidth: '1dp',
+  borderColor: '#5C5A5B'
+},
+
+"#set[platform=android]":{
+  font:{fontSize:'16dp',fontWeight:'bold',fontFamily:'Helvetica Neue'},
+  color: 'white',
+  backgroundGradient: {
+    type: 'linear',
+    startPoint: {x: '0%', y: '0%'},
+    endPoint: {x: '0%', y: '100%'} ,
+    colors: ['#0CAEC7', '#1B4E7A']
+  },
+},

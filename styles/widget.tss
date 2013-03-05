@@ -3,18 +3,13 @@
   bottom: 0,
   left: 0,
   right: 0,
-  backgroundColor: '#55000000',
-},
-
-"#close":{
-  top: 9,
-  right: 9,
-  image: '/com.appcelerator.jpcolomer.modalcountdown/close.png'
+  backgroundColor: '#111111',
+  fullscreen: false,
 },
 
 ".header": {
   width: Ti.UI.FILL,
-  height: 30,
+  height: '30dp',
   backgroundRepeat: true,
   visible: true,
   backgroundGradient: {
@@ -29,18 +24,18 @@
 ".modal-container":{
   left: '10dp',
   right: '10dp',
-  top: 100,
+  top: '100dp',
   height: Ti.UI.SIZE,
   layout: 'vertical',
   borderRadius: '10dp',
-  borderColor: 'black',
+  borderColor: '#111111',
   borderWidth: '1dp',
   backgroundColor: 'transparent'
 },
 
 "#body": {
-  backgroundColor: 'white',
-  top: 0,
+  backgroundColor: '#111111',
+  top: '30dp',
   width: Ti.UI.FILL,
   height: Ti.UI.SIZE,
   layout: 'vertical',
@@ -55,50 +50,139 @@
 
 "#clock_wrapper": {
   width: Ti.UI.FILL,
-  height: 100,
+  height: '100dp',
   backgroundColor: '#111111',
   layout: "center",
 },
 
 ".button-container": {
   width: Ti.UI.FILL,
-  height: 50,
+  height: Ti.UI.SIZE,
   backgroundColor: "#111111",
+  top: '20dp',
 },
 
 ".clock_label": {
   color: "white",
   font: {
-    fontSize: '60dp'
+    fontSize: '80dp'
   }
 },
 
 "#set":{
-  top: '25%',
-  height: '50%',
-  left: '50dp',
-  width: '80dp',
+  height: '40dp',
+  width: '40%',
+  left: '5%',
+  backgroundGradient: {
+    type: 'linear',
+    startPoint: {x: '0%', y: '0%'},
+    endPoint: {x: '0%', y: '100%'} ,
+    colors: [{color: '#FFFFFF' ,offset: 0.0},{color: '#0CAEC7', offset: 0.15},{color: '#1B4E7A', offset: 0.8}]
+  },
+  font:{fontWeight:'bold',fontFamily:'Helvetica Neue'},
+  backgroundSelectedColor: '#166916',
+  style: 0,
+  borderRadius: '5dp',
+  borderWidth: '1dp',
+  borderColor: '#5C5A5B'
+},
+
+"#set[platform=android]":{
+  font:{fontSize:'16dp',fontWeight:'bold',fontFamily:'Helvetica Neue'},
+  color: 'white',
+  backgroundGradient: {
+    type: 'linear',
+    startPoint: {x: '0%', y: '0%'},
+    endPoint: {x: '0%', y: '100%'} ,
+    colors: ['#0CAEC7', '#1B4E7A']
+  },
 },
 
 "#start":{
-  top: '25%',
-  height: '50%',
-  right:'50dp',
-  width:'80dp'
-}
-
-"#stop": {
-  visible: false,
-  top: '25%',
-  height: '50%',
-  left: '50dp',
-  width: '80dp'
+  height: '40dp',
+  width:'40%',
+  right: '5%',
+  backgroundGradient: {
+    type: 'linear',
+    startPoint: {x: '0%', y: '0%'},
+    endPoint: {x: '0%', y: '100%'} ,
+    colors: [{color: '#FFFFFF' ,offset: 0.0},{color: '#129616', offset: 0.15},{color: '#0C610E', offset: 0.8}]
+  },
+  font:{fontWeight:'bold',fontFamily:'Helvetica Neue'},
+  backgroundSelectedColor: '#166916',
+  style: 0,
+  borderRadius: '5dp',
+  borderWidth: '1dp',
+  borderColor: '#5C5A5B'
 },
 
-"#pause": {
+"#start[platform=android]":{
+  font:{fontSize:'16dp',fontWeight:'bold',fontFamily:'Helvetica Neue'},
+  color: 'white',
+  backgroundGradient: {
+    type: 'linear',
+    startPoint: {x: '0%', y: '0%'},
+    endPoint: {x: '0%', y: '100%'} ,
+    colors: ['#129616','#0C610E']
+  },
+},
+
+
+"#stop":{
   visible: false,
-  top: '25%',
-  height: '50%',
-  right:'50dp',
-  width:'80dp'
-}
+  height: '40dp',
+  width:'40%',
+  left: '5%',
+  backgroundGradient: {
+    type: 'linear',
+    startPoint: {x: '0%', y: '0%'},
+    endPoint: {x: '0%', y: '100%'} ,
+    colors: [{color: '#FFFFFF' ,offset: 0.0},{color: '#F22C2C', offset: 0.15},{color: '#A11818', offset: 0.8}]
+  },
+  font:{fontWeight:'bold',fontFamily:'Helvetica Neue'},
+  style: 0,
+  borderRadius: '5dp',
+  borderWidth: '1dp',
+  borderColor: '#5C5A5B'
+},
+
+"#stop[platform=android]":{
+  font:{fontSize:'16dp',fontWeight:'bold',fontFamily:'Helvetica Neue'},
+  color: 'white',
+  backgroundGradient: {
+    type: 'linear',
+    startPoint: {x: '0%', y: '0%'},
+    endPoint: {x: '0%', y: '100%'} ,
+    colors: ['#F22C2C','#A11818']
+  },
+},
+
+"#pause":{
+  visible: false,
+  height: '40dp',
+  width: '40%',
+  right: '5%',
+  backgroundGradient: {
+    type: 'linear',
+    startPoint: {x: '0%', y: '0%'},
+    endPoint: {x: '0%', y: '100%'} ,
+    colors: [{color: '#FFFFFF' ,offset: 0.0},{color: '#CFCF2B', offset: 0.15},{color: '#919C00', offset: 0.8}]
+  },
+  font:{fontWeight:'bold',fontFamily:'Helvetica Neue'},
+  backgroundSelectedColor: '#166916',
+  style: 0,
+  borderRadius: '5dp',
+  borderWidth: '1dp',
+  borderColor: '#5C5A5B'
+},
+
+"#pause[platform=android]":{
+  font:{fontSize:'16dp',fontWeight:'bold',fontFamily:'Helvetica Neue'},
+  color: 'white',
+  backgroundGradient: {
+    type: 'linear',
+    startPoint: {x: '0%', y: '0%'},
+    endPoint: {x: '0%', y: '100%'} ,
+    colors: [{color: '#FFFFFF' ,offset: 0.0},{color: '#CFCF2B', offset: 0.0},{color: '#919C00', offset: 0.8}]
+  },
+},

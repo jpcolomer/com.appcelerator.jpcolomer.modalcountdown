@@ -1,10 +1,5 @@
 <Alloy>
   <Window id="win" class="container">
-    <View class="modal-container" >
-
-        <View class="header">
-            <ImageView id="close" />
-        </View>
         <View id="body">
             <View id="clock_wrapper">
                 <Label class="clock_label" id="clock" text="00:10" />
@@ -16,6 +11,5 @@
                 <Button id="pause" title="Pause" />
             </View>
         </View>
-    </View>
   </Window>
 </Alloy>
